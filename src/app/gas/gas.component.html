@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label for="item"> Number of items:
+          <input type="text" id="item" value="10" #item>
+        </label>
+        <label for="weightMax"> Weight max:
+          <input type="text" id="weightMax" value="50" #weightMax>
+        </label>
+        <label for="valueMax"> Value max:
+          <input type="text" id="valueMax" value="100" #valueMax>
+        </label>
+        <label for="weightBalo"> Weight max cua balo:
+          <input type="text" id="weightBalo" value="100" #weightBalo>
+        </label>
+        <button class="btn btn-sm btn-outline-danger" (click)="createData(item, weightMax, valueMax)">Create data</button>
+        <label for="initial"> Intial population max
+          <input type="text" id="initial" value="50">
+        </label>
+        <button class="btn btn-sm btn-outline-danger" (click)="createPopulation(item)">Create initial</button>
+        <label for="crossover"> CrossOver:
+          <input type="text" id="crossover" value="0.65" #xslg>
+        </label>
+        <label for=""> Dot bien: </label> <br>
+        <input type="text" id="" value="0.05" #xsdb>
+        <button class="btn btn-sm btn-success" (click)="getResult(xslg, xsdb)">Start</button>
+      </div>
+    </div>
+    <div class="col-sm-3">List items
+      <table class="table">
+        <thead>
+        <tr>
+          <td>item</td>
+          <td>weight</td>
+          <td>value</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of items ; let i =  index ">
+          <td>{{i}}</td>
+          <td>{{item.weight}}</td>
+          <td>{{item.value}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-3">Population
+      <table class="table">
+        <thead>
+        <tr>
+          <td>CT</td>
+          <td>weight</td>
+          <td>value</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ch of chromosomeInitial ; let i =  index ">
+          <td>{{ch.code}}</td>
+          <td>{{ch.weight}}</td>
+          <td>{{ch.value}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-3">Result
+      <table class="table">
+        <thead>
+        <tr>
+          <td>CT</td>
+          <td>weight</td>
+          <td>value</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ch of NST_saudotbien ; let i =  index">
+          <td>{{ch.code}}</td>
+          <td>{{ch.weight}}</td>
+          <td>{{ch.value}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
